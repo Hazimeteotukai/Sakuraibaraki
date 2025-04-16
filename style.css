@@ -103,3 +103,14 @@ footer {
   z-index: 2;
   position: relative;
 }
+/* 下からフェードイン */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
