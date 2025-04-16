@@ -1,4 +1,4 @@
-/* アニメーション設定：フェードイン */
+/* 共通アニメーション：初期フェードイン */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -9,7 +9,18 @@
   opacity: 0;
 }
 
-/* 背景＋全体スタイル */
+/* 下からスクロールフェード */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 背景＆全体の雰囲気 */
 body {
   margin: 0;
   padding: 0;
@@ -20,7 +31,7 @@ body {
   position: relative;
 }
 
-/* キラッと光 */
+/* キラっと光るレイヤー */
 .shine-overlay {
   position: absolute;
   top: -50%;
@@ -44,14 +55,40 @@ header {
   z-index: 2;
   position: relative;
 }
-
 header h1 {
   font-size: 3em;
   color: #eeb3ff;
   text-shadow: 0 0 10px #ff8ce2, 0 0 20px #ff40c0;
 }
 
-/* 画像 */
+/* デジタル時計 */
+#clock {
+  margin-top: 15px;
+  color: #ffb6e1;
+  font-size: 1.2em;
+  text-shadow: 0 0 5px #ff8cd1;
+  font-family: 'Courier New', Courier, monospace; /* デジタル風フォント */
+}
+
+#time-container {
+  font-size: 2.2em;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.time-part {
+  display: inline-block;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.time-part.flip {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+/* 画像表示 */
 .image-container {
   text-align: center;
   margin: 40px 0;
@@ -66,7 +103,7 @@ header h1 {
   box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
 }
 
-/* 説明 */
+/* 説明セクション */
 .description {
   background: rgba(30, 0, 40, 0.6);
   margin: 0 auto;
@@ -92,6 +129,48 @@ header h1 {
   color: #f2d4ec;
 }
 
+/* 外部リンクセクション */
+.links {
+  text-align: center;
+  margin: 80px auto 60px;
+  padding: 30px;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.2);
+  z-index: 2;
+  position: relative;
+}
+
+.links h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #ffcbe6;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links li {
+  margin: 10px 0;
+}
+
+.links a {
+  color: #ff9ccf;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 5px #ff8ce2;
+}
+
 /* フッター */
 footer {
   text-align: center;
@@ -102,75 +181,4 @@ footer {
   margin-top: 60px;
   z-index: 2;
   position: relative;
-}
-/* 下からフェードイン */
-.scroll-fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.5s ease, transform 1.5s ease;
-}
-
-.scroll-fade.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* 時計スタイル */
-#clock {
-  margin-top: 15px;
-  color: #ffb6e1;
-  font-size: 1.2em;
-  text-shadow: 0 0 5px #ff8cd1;
-}
-
-#time-container {
-  font-size: 2em;
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-}
-
-.time-part {
-  display: inline-block;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.time-part.flip {
-  transform: translateY(-20px);
-  opacity: 0;
-}
-
-/* 外部リンク */
-.links {
-  text-align: center;
-  margin-top: 60px;
-  padding: 30px 20px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: #ccc;
-}
-
-.links h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.links li {
-  margin: 5px 0;
-}
-
-.links a {
-  color: #ff9ccf;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.links a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 5px #ff8ce2;
 }
