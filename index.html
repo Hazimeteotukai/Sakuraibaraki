@@ -10,9 +10,18 @@
 
   <header class="fade-in">
     <h1>Secret Lounge</h1>
+    <div id="clock" class="fade-clock">
+      <span id="date"></span>
+      <div id="time-container">
+        <span class="time-part" id="hours">00</span>:
+        <span class="time-part" id="minutes">00</span>:
+        <span class="time-part" id="seconds">00</span>
+      </div>
+    </div>
   </header>
 
   <main>
+    <!-- 画像1 -->
     <div class="image-container scroll-fade">
       <img src="images/IMG_0007.jpeg" alt="ラウンジイメージ1">
     </div>
@@ -25,6 +34,7 @@
       </p>
     </section>
 
+    <!-- 画像2 -->
     <div class="image-container scroll-fade">
       <img src="images/IMG_0023.jpeg" alt="ラウンジイメージ2">
     </div>
@@ -38,27 +48,62 @@
     </section>
   </main>
 
+  <!-- 外部リンク -->
+  <section class="links scroll-fade">
+    <h3>外部リンク</h3>
+    <ul>
+      <li><a href="#" target="_blank">リンク1</a></li>
+      <li><a href="#" target="_blank">リンク2</a></li>
+    </ul>
+  </section>
+
   <footer class="fade-in">
     <p>&copy; 2025 Secret Lounge</p>
   </footer>
 
+  <!-- スクロールアニメーション -->
   <script>
-    // スクロールで要素が見えたら表示
     const fadeElems = document.querySelectorAll('.scroll-fade');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0.2
-    });
+    }, { threshold: 0.2 });
 
-    fadeElems.forEach(elem => {
-      observer.observe(elem);
-    });
+    fadeElems.forEach(elem => observer.observe(elem));
+  </script>
+
+  <!-- 時計アニメーション -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      document.getElementById('date').textContent = `${year}/${month}/${day}`;
+      animateChange('hours', hours);
+      animateChange('minutes', minutes);
+      animateChange('seconds', seconds);
+    }
+
+    function animateChange(id, newVal) {
+      const el = document.getElementById(id);
+      if (el.textContent !== newVal) {
+        el.classList.remove('flip');
+        void el.offsetWidth; // 強制再描画
+        el.textContent = newVal;
+        el.classList.add('flip');
+      }
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
   </script>
 </body>
 </html>
