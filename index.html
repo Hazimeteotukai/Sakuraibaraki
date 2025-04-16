@@ -12,15 +12,28 @@
     <h1>Secret Lounge</h1>
   </header>
 
-  <main class="fade-in">
-    <div class="image-container">
-      <img src="images/IMG_0007.jpeg" alt="ラウンジイメージ">
+  <main>
+    <div class="image-container scroll-fade">
+      <img src="images/IMG_0007.jpeg" alt="ラウンジイメージ1">
     </div>
-    <section class="description">
+
+    <section class="description scroll-fade">
       <h2>ようこそ、大人の世界へ。</h2>
       <p>
         静寂に包まれた特別な空間。<br>
         ただの夜じゃ物足りないあなたへ。
+      </p>
+    </section>
+
+    <div class="image-container scroll-fade">
+      <img src="images/IMG_0023.jpeg" alt="ラウンジイメージ2">
+    </div>
+
+    <section class="description scroll-fade">
+      <h2>本物だけが知る夜。</h2>
+      <p>
+        深く落ちていくような感覚。<br>
+        誰にも邪魔されない、あなた専用の場所。
       </p>
     </section>
   </main>
@@ -28,5 +41,24 @@
   <footer class="fade-in">
     <p>&copy; 2025 Secret Lounge</p>
   </footer>
+
+  <script>
+    // スクロールで要素が見えたら表示
+    const fadeElems = document.querySelectorAll('.scroll-fade');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    fadeElems.forEach(elem => {
+      observer.observe(elem);
+    });
+  </script>
 </body>
 </html>
