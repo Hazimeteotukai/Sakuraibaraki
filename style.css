@@ -1,0 +1,68 @@
+/* 全体のリセットと基本設定 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  background: linear-gradient(to bottom, #fdf6f0, #f5e1ee);
+  color: #333;
+}
+
+/* ヘッダー */
+header {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 60px 20px 30px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 3em;
+  color: #b03e7e;
+  text-shadow: 1px 1px 3px #fff;
+}
+
+/* メイン画像 */
+.image-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.image-container img {
+  width: 80%;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 説明セクション */
+.description {
+  background: rgba(255, 255, 255, 0.85);
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 700px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.description h2 {
+  color: #a02d68;
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.description p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* フッター */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f1d7e0;
+  color: #a36a87;
+  font-size: 0.9em;
+  margin-top: 50px;
+}
