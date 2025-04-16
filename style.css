@@ -1,68 +1,94 @@
-/* 全体のリセットと基本設定 */
+/* 全体設定（暗め＋上品） */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-  background: linear-gradient(to bottom, #fdf6f0, #f5e1ee);
-  color: #333;
+  font-family: 'Yu Gothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+  background: linear-gradient(to bottom, #1a0d1e, #2c1b2f);
+  color: #eee;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* キラッと光るオーバーレイ */
+.shine-overlay {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shineMove 8s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+@keyframes shineMove {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
 }
 
 /* ヘッダー */
 header {
-  background: rgba(255, 255, 255, 0.8);
   padding: 60px 20px 30px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 2;
+  position: relative;
 }
 
 header h1 {
   font-size: 3em;
-  color: #b03e7e;
-  text-shadow: 1px 1px 3px #fff;
+  color: #eeb3ff;
+  text-shadow: 0 0 10px #ff8ce2, 0 0 20px #ff40c0;
 }
 
-/* メイン画像 */
+/* 画像エリア */
 .image-container {
   text-align: center;
   margin: 40px 0;
+  z-index: 2;
+  position: relative;
 }
 
 .image-container img {
   width: 80%;
   max-width: 800px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
 }
 
-/* 説明セクション */
+/* 説明エリア */
 .description {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(30, 0, 40, 0.6);
   margin: 0 auto;
   padding: 30px;
   max-width: 700px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
 }
 
 .description h2 {
-  color: #a02d68;
+  color: #ff99cc;
   font-size: 2em;
   margin-bottom: 15px;
+  text-shadow: 0 0 5px #ff66b2;
 }
 
 .description p {
-  font-size: 1.1em;
+  font-size: 1.2em;
   line-height: 1.8;
-  color: #555;
+  color: #f2d4ec;
 }
 
 /* フッター */
 footer {
   text-align: center;
   padding: 20px;
-  background: #f1d7e0;
-  color: #a36a87;
+  background: #1a0d1e;
+  color: #bb88aa;
   font-size: 0.9em;
-  margin-top: 50px;
+  margin-top: 60px;
+  z-index: 2;
+  position: relative;
 }
